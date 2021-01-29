@@ -1,0 +1,7 @@
+http://localhost:8080
+reverse_proxy hermes:8080 {
+    header_down Access-Control-Allow-Origin *
+    header_down Access-Control-Allow-Methods "GET, OPTIONS"
+    header_down Access-Control-Allow-Headers "Accept, Content-Type, Content-Length, Accept-Encoding, Authorization,X-CSRF-Token"
+    header_down Access-Control-Expose-Headers Authorization
+}

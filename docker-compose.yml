@@ -1,0 +1,14 @@
+version: '3'
+services:
+  hermes:
+    image: tornadoalert/hermes:latest
+    volumes: 
+      - .:/db
+    command: "java -jar target/hermes-full-v0.1.0.jar -d /db/snomed.db -p 8080 serve"
+    container_name: hermes
+  caddy:
+      image: caddy:latest
+      volumes: 
+          - ./Caddyfile:/etc/caddy/Caddyfile
+      ports:
+          - 8080:8080
